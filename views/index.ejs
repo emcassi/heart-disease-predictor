@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Heart Disease Predictor</title>
+        <link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+		<div class="header">
+            <div class="title">    
+                <h1>Heart Disease Predictor</h1>
+            </div>
+            <div class="author">
+                <p>
+                    by: Alex Wayne
+                </p>
+            </div>
+            <div class="desc">
+                <p>
+                    Enter the following information to have this machine learning algorithm predict whether someone has heart disease. <br>Note: this not intended as medical advice. Please contact your doctor if you have questions
+                </p>
+            </div>
+		</div>
+		<% if(answer != null){ %>
+			<% if(answer == 0){ %>
+				<div class="answer">
+					<h2 id="answerTitle">
+						Heart Disease Not Likely
+					</h2>
+					<p id="answerDesc">
+						You are not statistically likely to have heart disease. Talk to your doctor for more information
+					</p>
+				</div>
+		<%} }%>
+		<% if(answer == 1){ %>
+			<div class="answer">
+				<h2 id="answerTitle">
+					Heart Disease Likely
+				</h2>
+				<p id="answerDesc">
+					You are statistically likely to have heart disease. You should see your doctor
+				</p>
+			</div>
+		<%} %>
+		<div class="body">
+			<form action="/" method="post">
+				<div class="question">
+					<label class="mainLabel" for="age">Age: </label>
+					<input type="number" name="age" />
+				</div>
+
+				<div class="question">
+					<label class="mainLabel" for="sex">Sex: </label>
+					<select name="sex">
+						<option value="0">Male</option>
+						<option value="1">Female</option>
+					</select>
+				</div>
+				<div class="question">
+					<label class="mainLabel" for="chestPainType">Chest Pain Type: </label>
+					<select name="chestPainType">
+						<option value="2">Asymptomatic</option>
+						<option value="3">Typical Angina</option>
+						<option value="0">Atypical Angina</option>
+						<option value="1">Non-Anginal Pain</option>
+					</select>
+				</div>
+				<div class="question">
+					<label class="mainLabel" for="restingBloodPressure"
+						>Resting Blood Pressure (mm Hg):
+					</label>
+					<input type="number" name="restingBloodPressure" />
+				</div>
+				<div class="question">
+					<label class="mainLabel" for="cholesterol">Cholesterol (mm/dl): </label>
+					<input type="number" name="cholesterol" />
+				</div>
+				<div class="question">
+					<label class="mainLabel" for="fastingBloodSugar">Fasting Blood Sugar Over 120 mg/dl: </label>
+					<input
+						type="radio"
+						id="FSPtrue"
+						name="fastingBloodSugar"
+						value="1"
+					/>
+					<label for="FBPtrue">Yes</label>
+					<input
+						type="radio"
+						id="FBSfalse"
+						name="fastingBloodSugar"
+						value="0"
+					/>
+					<label for="FBPfalse">No</label>
+				</div>
+				<div class="question">
+                    <label class="mainLabel" for="restingECG">Resting ECG:</label>
+                    <select name="restingECG">
+						<option value="0">Normal</option>
+						<option value="1">ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)</option>
+						<option value="2">Showing probable or definite left ventricular hypertrophy by Estes criteria</option>
+					</select>
+                </div>
+                <div class="question">
+                    <label class="mainLabel" for="maxHeartRate">Max Heart Rate</label>
+                    <input type="number" name="maxHeartRate">
+                </div>
+                <div class="question">
+                    <label class="mainLabel" for="exerciseAngina">Exercise Induced Angina</label>
+                    <input
+						type="radio"
+						id="EAtrue"
+						name="exerciseAngina"
+						value="1"
+					/>
+					<label for="EAtrue">Yes</label>
+					<input
+						type="radio"
+						id="EAfalse"
+						name="exerciseAngina"
+						value="0"
+					/>
+					<label for="EAfalse">No</label>
+                </div>
+                <div class="question">
+                    <label class="mainLabel" for="oldPeakST">Old Peak ST [Numeric value measured in depression]</label>
+                    <input type="number" name="oldPeakST">
+                </div>
+                <div class="question">
+                    <label class="mainLabel" for="stSlope">The slope of the peak exercise ST segment</label>
+                    <select name="stSlope">
+						<option value="1">Flat</option>
+						<option value="2">Downwards</option>
+						<option value="0">Upwards</option>
+					</select>
+                </div>
+				<div class="button">
+					<button type="submit">
+						Submit
+					</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
